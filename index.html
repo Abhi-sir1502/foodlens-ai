@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>FoodLens AI</title>
+<link rel="stylesheet" href="style.css">
+
+<script src="https://unpkg.com/html5-qrcode"></script>
+</head>
+
+<body>
+
+<h1>FoodLens AI</h1>
+<p>Scan Food Barcode</p>
+
+<div id="reader"></div>
+
+<h3 id="barcode"></h3>
+
+<div id="productCard" class="card"></div>
+
+<button onclick="scanAgain()">Scan Again</button>
+
+<script src="api.js"></script>
+<script src="analyser.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
