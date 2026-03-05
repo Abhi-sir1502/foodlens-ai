@@ -1,19 +1,27 @@
-async function getProductData(barcode){
+function getProductInfo(barcode) {
+    const products = {
+        "8901058023787": {
+            name: "Maggi 140g",
+            brand: "Maggi",
+            quantity: "140g",
+            ingredients: "Refined wheat flour, Palm oil, Iodized salt, Masala..."
+        },
+        "8939115351498": {
+            name: "Amul Butter 100g",
+            brand: "Amul",
+            quantity: "100g",
+            ingredients: "Milk, Salt, Water..."
+        }
+    };
 
-let url = "https://world.openfoodfacts.org/api/v0/product/" + barcode + ".json";
-
-let response = await fetch(url);
-
-let data = await response.json();
-
-if(data.status === 1){
-
-showProduct(data.product);
-
-}else{
-
-document.getElementById("productCard").innerHTML =
-"<h3>Product not found in database</h3>";
-}
-
+    if(products[barcode]) {
+        return `
+            <p><strong>${products[barcode].name}</strong></p>
+            <p>Brand: ${products[barcode].brand}</p>
+            <p>Quantity: ${products[barcode].quantity}</p>
+            <p>Ingredients: ${products[barcode].ingredients}</p>
+        `;
+    } else {
+        return <p>Product not found in database</p>;
+    }
 }
